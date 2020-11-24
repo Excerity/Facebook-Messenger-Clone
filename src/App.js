@@ -7,6 +7,9 @@ import Message from './Message'
 import db from './firebase';
 import firebase from 'firebase'
 import FlipMove from 'react-flip-move'
+import SendIcon from '@material-ui/icons/Send';
+import { IconButton } from '@material-ui/core';
+
 
 function App() {
 const [input, setInput] = useState('') 
@@ -41,15 +44,20 @@ const [username, setUsername] = useState('')
   return (
     <div className="App">
       <img src="https://img.icons8.com/fluent/48/000000/facebook-messenger--v2.png"/>
-      <h1>hello</h1>
+      <h1>Welcome to Messenger</h1>
       <h2>Hello {username}</h2>                                 
 
       <form className='app__form'>
-       <FormControl>
-     <InputLabel>Enter a message...</InputLabel>
-  <Input onChange={event => setInput(event.target.value)}
+
+       <FormControl className='app__formControl'>
+    
+  <Input className='app__input' placeholder='Enter a message...' onChange={event => setInput(event.target.value)}
        value={input}/>
-  <Button disabled={!input} variant="contained" color="primary" type='submit' onClick={sendMessage}>Send Message</Button>
+
+    <IconButton className='app__iconButton' disabled={!input} variant="contained" color="primary" type='submit' onClick={sendMessage}>
+
+      <SendIcon />
+    </IconButton>
 
 </FormControl> 
           
